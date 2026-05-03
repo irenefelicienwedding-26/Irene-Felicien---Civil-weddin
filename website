@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariage Civil - Irene & Felicien</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f9e1c8, #c5a678);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    
+    h1, h2, h3 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #6b4423;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #c0925d;
+    }
+
+    .program {
+      text-align: center;
+      margin-top: 30px;
+      line-height: 1.8;
+    }
+
+    .countdown {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .box {
+      background: #ffffffcc;
+      padding: 20px 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #854c28;
+    }
+
+    .label {
+      font-size: 1rem;
+      color: #5e4536;
+    }
+
+    .divider {
+      background: #854c28;
+      height: 3px;
+      width: 70px;
+      margin: 0 auto 20px;
+    }
+
+    .rsvp-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .rsvp-section form {
+      margin-top: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 1rem;
+      margin-top: 10px;
+      color: #5e4536;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: calc(100% - 40px);
+      max-width: 300px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #c5a678;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #854c28;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background: #6b4423;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #5e4536;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mariage Civil</h1>
+    <h2>Irene & Felicien</h2>
+    <div class="divider"></div>
+  </header>
+
+  <section class="program">
+    <h3>Programme</h3>
+    <p>La cérémonie civile aura lieu le <strong>29 Mai 2026</strong></p>
+    <p>à <strong>14:00</strong>, au <strong>Hilton Hôtel, Kinshasa.</strong></p>
+  </section>
+
+  <!-- Countdown Timer -->
+  <div class="countdown">
+    <div class="box">
+      <div class="number" id="days">0</div>
+      <div class="label">Jours</div>
+    </div>
+    <div class="box">
+      <div class="number" id="hours">0</div>
+      <div class="label">Heures</div>
+    </div>
+    <div class="box">
+      <div class="number" id="minutes">0</div>
+      <div class="label">Minutes</div>
+    </div>
+    <div class="box">
+      <div class="number" id="seconds">0</div>
+      <div class="label">Secondes</div>
+    </div>
+  </div>
+
+  <!-- RSVP Section -->
+  <section class="rsvp-section">
+    <h3>RSVP</h3>
+    <p>Réservez votre place en ajoutant votre nom et email :</p>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="name">Nom complet :</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Adresse email :</label>
+      <input type="email" id="email" name="email" required>
+      
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    Nous avons hâte de célébrer ce moment avec vous 💍
+  </footer>
+
+  <script>
+    // Countdown script
+    const weddingDate = new Date("May 29, 2026 14:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.querySelector(".countdown").innerHTML = "C'est aujourd'hui ! 🎉";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
