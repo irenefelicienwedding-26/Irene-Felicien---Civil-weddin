@@ -1,1 +1,70 @@
-index.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mariage Civil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font (elegant wedding style) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #f6f1e7, #e9dcc6);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      border: 1px solid #d4b483;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #8b6b2c;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #333;
+      margin: 0;
+    }
+
+    .time {
+      margin-top: 10px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #c49b3f;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: #c49b3f;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Mariage Civil</h1>
+    <div class="divider"></div>
+    <p>La cérémonie civile débutera à</p>
+    <div class="time">14h00</div>
+  </div>
+</body>
+</html>
